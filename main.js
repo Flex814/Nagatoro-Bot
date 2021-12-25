@@ -43,6 +43,8 @@ client.on("message", (message) => {
   //commands
   if (command === "test") {
     client.commands.get("test").execute(message, args);
+  } else if (command == "help") {
+    client.commands.get("help").execute(message, args);
   }
 });
 
