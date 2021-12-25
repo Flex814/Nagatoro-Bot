@@ -7,6 +7,8 @@ current commands:
 ```
 -test
 -help
+-rules
+-clear
 ```
 
 commands being worked on right now:

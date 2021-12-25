@@ -49,6 +49,8 @@ client.on("message", (message) => {
     client.commands.get("permissions").execute(message, args);
   } else if (command === "rules") {
     client.commands.get("rules").execute(message, args, Discord); //Must pass in Discord!
+  } else if (command === "clear") {
+    client.commands.get("clear").execute(message, args, Discord);
   }
 });
 
