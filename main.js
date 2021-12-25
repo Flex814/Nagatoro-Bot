@@ -47,6 +47,8 @@ client.on("message", (message) => {
     client.commands.get("help").execute(message, args);
   } else if (command == "permissions") {
     client.commands.get("permissions").execute(message, args);
+  } else if (command === "rules") {
+    client.commands.get("rules").execute(message, args, Discord); //Must pass in Discord!
   }
 });
 
