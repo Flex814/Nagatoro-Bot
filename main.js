@@ -45,6 +45,8 @@ client.on("message", (message) => {
     client.commands.get("test").execute(message, args);
   } else if (command == "help") {
     client.commands.get("help").execute(message, args);
+  } else if (command == "permissions") {
+    client.commands.get("permissions").execute(message, args);
   }
 });
 
