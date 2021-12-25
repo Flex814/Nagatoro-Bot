@@ -2,13 +2,30 @@
 const { configKeys } = require("./config.js");
 
 //discord setup
-const { Client, Intents } = require("discord.js");
+const { Client, Intents, DiscordAPIError } = (Discord = require("discord.js"));
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
 
 //How to call the bot
 const prefix = "-";
+
+//require for other js files
+const fs = require("fs");
+
+//collection of commands for bot
+client.commands = new Discord.Collection();
+
+//ensure files read are js files
+const commandFiles = fs
+  .readdirSync("./commands/")
+  .filter((file) => file.endsWith(".js"));
+//loop through each file
+for (const file of commandFiles) {
+  const command = require(`./commands/${file}`);
+
+  client.commands.set(command.name, command);
+}
 
 //Is Nagatoro online?
 client.once("ready", () => {
@@ -23,10 +40,9 @@ client.on("message", (message) => {
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
 
+  //commands
   if (command === "test") {
-    message.channel.send(
-      "Wow! You did a test! You're sooooo smart, Senpai! Congratulations!"
-    );
+    client.commands.get("test").execute(message, args);
   }
 });
 
