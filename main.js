@@ -8,6 +8,9 @@ const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
 
+//used for member counter function
+const memberCounter = require("./counters/member-counter");
+
 //How to call the bot
 const prefix = "-";
 
@@ -31,6 +34,7 @@ for (const file of commandFiles) {
 //Is Nagatoro online?
 client.once("ready", () => {
   console.log("Nagatoro is online!");
+  memberCounter(client);
 });
 
 //Assigning role to each new member
