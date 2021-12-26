@@ -33,6 +33,20 @@ client.once("ready", () => {
   console.log("Nagatoro is online!");
 });
 
+//Assigning role to each new member
+client.on("guildMemberAdd", (guildMember) => {
+  let welcomeRole = guildMember.guild.roles.cache.find(
+    (role) => role.name === "A Real One"
+  );
+  guildMember.roles.add(welcomeRole);
+  //enter your welcome channel ID here for this to work
+  guildMember.guild.channels.cache
+    .get("511376020671299593")
+    .send(
+      `Sup <@${guildMember.user.id}>! Make sure to check the rules, not that you could follow them anyways`
+    );
+});
+
 client.on("message", (message) => {
   //did message have prefix?
   if (!message.content.startsWith(prefix) || message.author.bot) return;
