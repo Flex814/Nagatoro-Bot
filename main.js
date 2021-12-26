@@ -58,4 +58,4 @@ client.on("message", (message) => {
 //Uncomment for local testing
 // client.login(configKeys.NagatoroKey);
 //replace with your own bot key for deployment
-client.login(process.env.DJS_TOKEN);
+client.login(process.env.TOKEN);
