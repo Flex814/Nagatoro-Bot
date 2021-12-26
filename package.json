@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "nagatoro bot",
   "main": "main.js",
-  "engine": {
+  "engines": {
     "node": "16.x",
     "npm": "8.x"
   },
