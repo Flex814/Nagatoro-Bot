@@ -1,6 +1,6 @@
 //import bot key from config.js
 //uncomment for local testing
-const { configKeys } = require("./config.js");
+// const { configKeys } = require("./config.js");
 
 //discord setup
 const { Client, Intents, DiscordAPIError } = (Discord = require("discord.js"));
@@ -56,6 +56,6 @@ client.on("message", (message) => {
 });
 
 //Uncomment for local testing
-client.login(configKeys.NagatoroKey);
+// client.login(configKeys.NagatoroKey);
 //replace with your own bot key for deployment
-// client.login(process.env.TOKEN);
+client.login(NagatoroKey);
